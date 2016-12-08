@@ -47,8 +47,8 @@ public class Cashier {
             Sale sale = new Sale(dessertList, saleTotal, customerMoney, change);
 
             depositMoney(sale.getSaleTotal());
-            removeAllDessertsFromInventory(dessertList);
-            System.out.println("debug");
+            removeTheDessertsFromInventory(dessertList);
+            
             addSaleToReport(sale);
         } catch (InsufficientAmountException ex) {
             System.err.println(ex.getClass().getName() + ": " + ex.getMessage());
@@ -129,7 +129,7 @@ public class Cashier {
         buyerList.add(newDessert);
     }
 
-    private void removeAllDessertsFromInventory(Dessert[] dessertList) {
+    private void removeTheDessertsFromInventory(Dessert[] dessertList) {
         for (int listIndex = 0; listIndex < dessertList.length; listIndex++) {
             removeDessertFromInventory(dessertList[ listIndex ]);
         }

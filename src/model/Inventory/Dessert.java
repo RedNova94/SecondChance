@@ -12,12 +12,23 @@ public class Dessert {
     private double price;
     private double cost;
     private int stock;
+    
+    public Dessert(String name, String description, double price, double cost) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.cost = cost;
+        
+        this.stock = 0;
+    }
 
     public Dessert(String name, String description, double price, double cost, int stock) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.cost = cost;
+        
+        this.stock = stock;
     }
     
     //Getters and Setters for fields
