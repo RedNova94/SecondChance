@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.7508361204013378" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderListController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <TableView layoutX="60.0" layoutY="14.0" prefHeight="598.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn fx:id="nameColumn" editable="false" prefWidth="168.0" resizable="false" text="Nombre" />
+                <TableColumn fx:id="descColumn" editable="false" prefWidth="258.0" resizable="false" text="Descripcion" />
+                  <TableColumn fx:id="priceColumn" prefWidth="48.0" resizable="false" text="Precio" />
+                  <TableColumn fx:id="costColumn" prefWidth="46.0" resizable="false" text="Costo" />
+                  <TableColumn fx:id="stockColumn" prefWidth="75.0" resizable="false" text="Existencia" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="btnAddProduct" layoutX="40.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAddProductPress" prefHeight="46.0" prefWidth="117.0" text="Agregar nuevo producto" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+            <Button fx:id="btnRemoveProduct" layoutX="43.0" layoutY="270.0" mnemonicParsing="false" onAction="#btnRemoveProductPress" prefHeight="46.0" prefWidth="111.0" text="Eliminar producto" textAlignment="CENTER" wrapText="true" />
+            <TextField fx:id="quantityField" alignment="CENTER_RIGHT" layoutX="48.0" layoutY="164.0" prefHeight="25.0" prefWidth="99.0" text="1" />
+            <Button fx:id="btnAddStock" layoutX="31.0" layoutY="211.0" mnemonicParsing="false" onAction="#btnAddStockPress" text="Agregar cantidad" />
+            <Button fx:id="btnReturn" layoutX="59.0" layoutY="529.0" mnemonicParsing="false" onAction="#btnReturn" text="Regresar" />
+            <TextField fx:id="productKeyField" layoutX="25.0" layoutY="121.0" prefHeight="31.0" prefWidth="146.0" promptText="Clave de producto" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.7953539823008849" maxHeight="695.0" maxWidth="906.0" minHeight="600.0" minWidth="800.0" prefHeight="695.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderListController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <TableView fx:id="orderList" prefHeight="598.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn fx:id="clientNameColumn" editable="false" prefWidth="209.0" resizable="false" text="Nombre del Cliente" />
+                <TableColumn fx:id="descColumn" editable="false" prefWidth="193.0" resizable="false" text="Descripcion" />
+                  <TableColumn fx:id="phoneColumn" prefWidth="114.0" resizable="false" text="Telefono" />
+                  <TableColumn fx:id="dateColumn" prefWidth="109.0" resizable="false" text="Fecha" />
+                  <TableColumn fx:id="statusColumn" prefWidth="88.0" resizable="false" text="Existencia" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="btnChangeStatus" layoutX="31.0" layoutY="171.0" mnemonicParsing="false" onAction="#btnChangeStatusPress" text="Cambiar estado" />
+            <Button fx:id="btnReturn" layoutX="59.0" layoutY="529.0" mnemonicParsing="false" onAction="#btnReturnPress" text="Regresar" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>

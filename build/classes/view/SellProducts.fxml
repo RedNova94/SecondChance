@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<SplitPane dividerPositions="0.6851385390428212" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SellProductsController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <TableView fx:id="viewProductList" layoutX="-19.0" layoutY="39.0" prefHeight="402.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn fx:id="dessertName" editable="false" prefWidth="209.0" resizable="false" sortable="false" text="Nombre" />
+                <TableColumn fx:id="dessertPrice" editable="false" minWidth="0.0" prefWidth="59.0" resizable="false" sortable="false" text="Precio" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="btnAceptar" layoutX="15.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnFinishSalePress" text="Finalizar venta" wrapText="true" />
+            <Button fx:id="btnCancelar" layoutX="29.0" layoutY="363.0" mnemonicParsing="false" onAction="#btnCancelarPress" text="Cancelar" />
+            <TextField fx:id="customerMoney" layoutX="8.0" layoutY="250.0" prefHeight="25.0" prefWidth="106.0" promptText="Pago del cliente...." />
+            <Separator layoutX="-27.0" layoutY="224.0" prefHeight="12.0" prefWidth="200.0" />
+            <Label layoutX="22.0" layoutY="14.0" lineSpacing="1.0" prefHeight="46.0" prefWidth="79.0" text="Venta de Producto" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <GridPane layoutX="-1.0" layoutY="71.0" prefHeight="153.0" prefWidth="122.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="btnViewProducts" mnemonicParsing="false" onAction="#btnViewProductsPress" text="Ver productos" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children></AnchorPane>
+  </items>
+</SplitPane>
