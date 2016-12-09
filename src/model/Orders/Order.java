@@ -50,11 +50,6 @@ public final class Order {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    
-    public Calendar getDueDateAsCalendar() {
-        return dueDate;
-    }
     
     //Converts the date from Calendar to the format the Interface uses
     public String getDueDate(){

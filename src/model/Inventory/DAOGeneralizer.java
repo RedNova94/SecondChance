@@ -7,6 +7,9 @@ package model.Inventory;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  *
@@ -16,6 +19,7 @@ public class DAOGeneralizer {
 
     ConnectionForInventory actualConnection = null;
     PreparedStatement commandStatement = null;
+    private static final String FORMAT_TIME = "yyyy-MM-dd HH:mm:ss";
 
     public void openConnection() {
         actualConnection = new ConnectionForInventory();
@@ -29,5 +33,12 @@ public class DAOGeneralizer {
 
     public PreparedStatement prepareQuery(String command) throws SQLException {
         return actualConnection.getConnection().prepareStatement(command);
+    }
+    
+    public static Calendar setFormatDate(String date) throws ParseException{
+       Calendar calendar=Calendar.getInstance();
+        SimpleDateFormat dateFormat= new SimpleDateFormat(FORMAT_TIME);
+        calendar.setTime(dateFormat.parse(date));
+        return calendar;
     }
 }
