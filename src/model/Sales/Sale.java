@@ -19,9 +19,9 @@ public class Sale  {
     private double change;
     private static String formatTime = "yyyy-MM-dd HH:mm:ss";
 
-    public Sale(Dessert[] products, double saleTotal, double customerMoney, double change) {
+    public Sale(Dessert[] productsSold, double saleTotal, double customerMoney, double change) {
         this.purchaseDate = Calendar.getInstance();
-        this.productsSold = products;
+        this.productsSold = productsSold;
         this.saleTotal = saleTotal;
         this.customerMoney = customerMoney;
         this.change = change;
@@ -45,11 +45,10 @@ public class Sale  {
         this.productsSold = productsSold;
     }
 
-    public Calendar getPurchaseDate() {
-//        SimpleDateFormat formatDate = new SimpleDateFormat(formatTime);
-//        String date = formatDate.format(purchaseDate.getTime());
-//        return date;
-        return purchaseDate;
+    public String getPurchaseDate() {
+        SimpleDateFormat formatDate = new SimpleDateFormat(formatTime);
+       String dateAsString = formatDate.format(purchaseDate.getTime());
+       return dateAsString;
     }
 
     public void setPurchaseDate(Calendar purchaseDate) {

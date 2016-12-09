@@ -6,6 +6,8 @@ import Utilites.StorageLabels;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -33,7 +35,7 @@ public class BakeryMenuDAO extends DAOGeneralizer {
     public void removeDessertFromMenu(int dessertKey) {
         try {
             openConnection();
-            commandStatement = actualConnection.getConnection().prepareStatement(BakeryMenuCommands.DELETE.getCommand());
+            commandStatement = prepareQuery(BakeryMenuCommands.DELETE.getCommand());
             commandStatement.setInt(1, dessertKey);
             commandStatement.executeUpdate();
             closeConnection();
@@ -65,5 +67,24 @@ public class BakeryMenuDAO extends DAOGeneralizer {
         double price = results.getDouble(BakeryMenuLabels.PRICE.getColumName());
         int stock = results.getInt(StorageLabels.STOCK.getColumName());
         return new Dessert(name, description, price, cost, stock);
+    }
+
+    public int getKeyFromDessert(Dessert dessert) {
+        int key = -1;
+        try {
+            openConnection();
+            commandStatement = prepareQuery(BakeryMenuCommands.SELECT_KEY_PRODUCT.getCommand());
+            commandStatement.setString(1, dessert.getName());
+            commandStatement.setString(2, dessert.getDescription());
+            ResultSet results = commandStatement.executeQuery();
+
+            key = results.getInt("DessertKey");
+            
+            closeConnection();
+        } catch (SQLException ex) {
+            System.err.println(ex.getClass().getName() + ": " + ex.getMessage());
+        } finally {
+            return key;
+        }
     }
 }

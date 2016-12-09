@@ -16,25 +16,19 @@ import java.util.Calendar;
  */
 public class SalesDAO extends DAOGeneralizer {
     
-    public static void main(String args[]){
-        Dessert d1 = new Dessert("Pastel de Queso", "8-10", 50, 25);
-        Dessert[] list = {d1};
-        Sale sale = new Sale(list, Calendar.getInstance(), 600, 700, 100);
-        SalesDAO dao = new SalesDAO();
-        dao.addNewSale(sale);
+    public void prAr(Sale s){
+        System.out.println(s.getPurchaseDate()+s.getSaleTotal()+s.getCustomerMoney()+s.getChange());
     }
 
     public void addNewSale(Sale sale) {
         try {
             openConnection();
             commandStatement = prepareQuery(SalesCommands.INSERT.getCommand());
-            Date purchaseDate = new Date(sale.getPurchaseDate().getTimeInMillis());
-            commandStatement.setDate(1, purchaseDate);
+            commandStatement.setString(1, sale.getPurchaseDate());
             commandStatement.setDouble(2, sale.getSaleTotal());
             commandStatement.setDouble(3, sale.getCustomerMoney());
             commandStatement.setDouble(4, sale.getChange());
             commandStatement.executeUpdate();
-            
             closeConnection();
         } catch (SQLException ex) {
             System.err.println(ex.getClass().getName() + ": " + ex.getMessage());
@@ -98,5 +92,18 @@ public class SalesDAO extends DAOGeneralizer {
         dessertList = new Dessert[productsList.size()];
         dessertList = productsList.toArray(dessertList);
         return dessertList;
+    }
+
+    public void registerProducts(Sale sale,int productKey) {
+        try{
+            openConnection();
+            commandStatement=prepareQuery(ProductsSoldCommands.INSERT_PRODUCTS_SOLD.getCommand());
+            commandStatement.setString(1, sale.getPurchaseDate());
+            commandStatement.setInt(2, productKey);
+            commandStatement.executeUpdate();
+            closeConnection();
+        } catch (SQLException ex) {
+            System.err.println(ex.getClass().getName() + ": " + ex.getMessage());
+        }
     }
 }
