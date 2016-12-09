@@ -12,7 +12,7 @@ import java.sql.SQLException;
  *
  * @author Mariana Rocha
  */
-public abstract class DAOGeneralizer {
+public class DAOGeneralizer {
 
     ConnectionForInventory actualConnection = null;
     PreparedStatement commandStatement = null;
