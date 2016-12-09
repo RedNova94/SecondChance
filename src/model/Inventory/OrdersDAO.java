@@ -84,7 +84,6 @@ public class OrdersDAO extends DAOGeneralizer {
         try {
             openConnection();
             commandStatement = prepareQuery(OrdersCommands.DELETE_ORDER.getCommand());
-//            Date dueDate = new Date(order.getDueDateAsCalendar().getTimeInMillis());
             commandStatement.setString(1, order.getDueDate());
             commandStatement.setString(2, order.getCustomerName());
             commandStatement.setBoolean(3, order.isDelivered());
