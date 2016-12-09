@@ -11,7 +11,8 @@ public enum StorageCommands {
     REMOVE_AMOUNT("UPDATE Storage SET Stock=Stock-? WHERE DessertKey=?;"),
     SELECT_DESSERT_AND_STOCK("SELECT * FROM BakeryMenu JOIN Storage WHERE "
             + "(BakeryMenu.DessertKey = STORAGE.DessertKey);"),
-    UPDATE_STOCK("UPDATE Storage SET Stock = ? WHERE DessertKey = ?;");
+    UPDATE_STOCK("UPDATE Storage SET Stock = ? WHERE DessertKey = ?;"),
+    REMOVE_REGISTER("DELETE FROM Storage WHERE DessertKey = ?;");
 
     private final String command;
 

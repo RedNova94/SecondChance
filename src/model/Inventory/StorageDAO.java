@@ -89,4 +89,15 @@ public class StorageDAO extends DAOGeneralizer {
             Logger.getLogger(StorageDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void deleteDessertOfStock(int productKey){
+        try {
+            openConnection();
+            commandStatement=prepareQuery(StorageCommands.REMOVE_REGISTER.getCommand());
+            commandStatement.setInt(1, productKey);
+            commandStatement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(StorageDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
