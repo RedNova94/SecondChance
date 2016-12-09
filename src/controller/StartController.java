@@ -51,7 +51,8 @@ public class StartController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+        Bakery Delicious = new Bakery();
+        this.currentBakery = Delicious;
     }    
 
     @FXML

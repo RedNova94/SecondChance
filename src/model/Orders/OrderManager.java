@@ -11,7 +11,7 @@ import model.Inventory.OrdersDAO;
 
 public class OrderManager {
 
-    private OrdersDAO orderList = null;
+    private OrdersDAO orderList;
 
     public OrderManager() {
         orderList = new OrdersDAO();
