@@ -5,6 +5,8 @@ import Utilites.StorageLabels;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -12,11 +14,6 @@ import java.util.ArrayList;
  */
 public class StorageDAO extends DAOGeneralizer {
 
-    public static void main(String[] args) {
-        StorageDAO dao= new StorageDAO();
-        dao.addDessertToStorage(4, 3);
-    }
-    
 //add joptionpane after create menu to add stock
     public void addDessertToStorage(int dessertKey, int amount) {
         try {
@@ -77,6 +74,19 @@ public class StorageDAO extends DAOGeneralizer {
             System.err.println(ex.getClass().getName() + ": " + ex.getMessage());
         } finally {
             return itemsList;
+        }
+    }
+
+    public void setStockOfDessert(int productKey, int amount) {
+        try {
+            openConnection();
+            commandStatement = prepareQuery(StorageCommands.UPDATE_STOCK.getCommand());
+            commandStatement.setInt(1, amount);
+            commandStatement.setInt(2, productKey);
+            commandStatement.executeUpdate();
+            closeConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(StorageDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
