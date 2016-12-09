@@ -1,7 +1,7 @@
 package model.Inventory;
 
-import EnumInventory.StorageCommands;
-import EnumInventory.StorageLabels;
+import Utilites.StorageCommands;
+import Utilites.StorageLabels;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

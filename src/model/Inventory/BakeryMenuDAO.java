@@ -1,8 +1,8 @@
 package model.Inventory;
 
-import EnumInventory.BakeryMenuCommands;
-import EnumInventory.BakeryMenuLabels;
-import EnumInventory.StorageLabels;
+import Utilites.BakeryMenuCommands;
+import Utilites.BakeryMenuLabels;
+import Utilites.StorageLabels;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

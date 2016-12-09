@@ -1,7 +1,7 @@
 package model.Inventory;
 
-import EnumInventory.OrdersCommands;
-import EnumInventory.OrdersLabels;
+import Utilites.OrdersCommands;
+import Utilites.OrdersLabels;
 import model.Orders.Order;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -16,8 +16,10 @@ import java.util.Calendar;
 public class OrdersDAO extends DAOGeneralizer {
 
     public static void main(String[] args) {
-        Order o= new Order("Señor capitan", "Galletas del mar", , "999999999");
-        OrdersDAO
+        java.util.Date cal = Calendar.getInstance().getTime();
+        Order o= new Order("Señor capitan", "Galletas del mar",Calendar.getInstance(), "999999999");
+        OrdersDAO dao = new OrdersDAO();
+        dao.addNewOrder(o);
     }
     
     public void addNewOrder(Order order) {

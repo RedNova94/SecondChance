@@ -1,8 +1,8 @@
 package model.Inventory;
 
-import EnumInventory.ProductsSoldCommands;
-import EnumInventory.SalesCommands;
-import EnumInventory.SalesLabels;
+import Utilites.ProductsSoldCommands;
+import Utilites.SalesCommands;
+import Utilites.SalesLabels;
 import model.Sales.Sale;
 import java.sql.Date;
 import java.sql.ResultSet;
