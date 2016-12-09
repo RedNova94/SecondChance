@@ -74,6 +74,10 @@ public class SellProductsController implements Initializable {
         this.nStage = stage;
     }
     
+    public void setBuyList(ArrayList list){
+        this.dessertList = list;
+    }
+    
     
     //Referir a la documentación para aclarar abstracción de este método
     @Override
@@ -144,6 +148,7 @@ public class SellProductsController implements Initializable {
         nStage.setScene(new Scene(root));
         nStage.show();
         controller.setCurrentCashier(currentCashier);
+        controller.setBuyList(this.dessertList);
     }
     
 }

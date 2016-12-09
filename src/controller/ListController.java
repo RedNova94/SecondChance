@@ -56,6 +56,8 @@ public class ListController implements Initializable {
     private ObservableList<Dessert> currentList;
     
     private Cashier currentCashier;
+    
+    private ArrayList<Dessert> buyList;
 
     public void setCurrentCashier(Cashier currentCashier) {
         this.currentCashier = currentCashier;
@@ -63,6 +65,10 @@ public class ListController implements Initializable {
 
     public void setStage(Stage stage){
         this.nStage = stage;
+    }
+    
+    public void setBuyList(ArrayList list){
+        this.buyList = list;
     }
    
     /**
@@ -121,11 +127,15 @@ public class ListController implements Initializable {
 
     public void goBack(Stage stage) throws IOException{
         nStage = stage;
-        FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("/view/SellProducts.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SellProducts.fxml"));
+        Parent root = loader.load();
+        SellProductsController controller = loader.getController();
         nStage.setTitle("Ventas y pedidos");
         nStage.setScene(new Scene(root));
         nStage.show();
+        
+        controller.setBuyList(buyList);
+        controller.updateTable();
         
     }
     
@@ -138,6 +148,7 @@ public class ListController implements Initializable {
         nStage.setTitle("Ventas y pedidos");
         nStage.setScene(new Scene(root));
         nStage.show();
+        controller.setBuyList(buyList);
         controller.returnFromListWindow(product, productQuantity);
         
     }
