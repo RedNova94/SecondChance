@@ -49,7 +49,7 @@ public class Cashier {
             depositMoney(sale.getSaleTotal());
             removeTheDessertsFromInventory(dessertList);
             
-            addSaleToReport(sale);
+            addSaleToSaleHistory(sale);
         } catch (InsufficientAmountException ex) {
             System.err.println(ex.getClass().getName() + ": " + ex.getMessage());
         } 
@@ -108,16 +108,8 @@ public class Cashier {
         inventory.removeStockFromDessert(dessert, PRODUCT_UNIT);
     }
 
-    public void addSaleToReport(Sale sale) {
-        historicalSales.addNewSale(sale);
-    }
-    
     public void addSaleToSaleHistory(Sale sale) {
-        Dessert[] productList = sale.getProductsSold();
-        for (int indexList = 0; indexList < productList.length; indexList++) {
-            
-            
-        }
+        historicalSales.addNewSale(sale);
     }
     
     public ArrayList<Dessert> retrieveMenuWithStock(){
