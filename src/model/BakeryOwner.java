@@ -30,10 +30,6 @@ public class BakeryOwner {
         productList.removeDessertFromMenu(productKey);
     }
 
-    public void modifyDessertFromMenu(Dessert modifiedDessert, int dessertKey) {
-        productList.modifyAtributesOfDessert(modifiedDessert, dessertKey);
-    }
-
     public ArrayList<Dessert> seeDessertFromMenu() {
         return productList.getDesserstFromMenu();
     }
