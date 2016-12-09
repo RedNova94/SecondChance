@@ -8,7 +8,7 @@ public enum StorageCommands {
 
     INSERT("INSERT INTO Storage (DessertKey, Stock) VALUES (?,?);"),
     SELECT_STOCK("SELECT * FROM Storage WHERE DESSERTKey=?;"),
-    REMOVE_AMOUNT("UPDATE Storage SET Stock=Stock-? WHERE DessertName=? and Desc=?;"),
+    REMOVE_AMOUNT("UPDATE Storage SET Stock=Stock-? WHERE DessertKey=?;"),
     SELECT_DESSERT_AND_STOCK("SELECT * FROM BakeryMenu JOIN Storage WHERE "
             + "(BakeryMenu.DessertKey = STORAGE.DessertKey);");
 

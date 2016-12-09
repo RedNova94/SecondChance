@@ -11,6 +11,7 @@ import Exceptions.InsufficientAmountException;
 import Exceptions.NotEnoughStockException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import model.Inventory.BakeryMenuDAO;
 import model.Inventory.Dessert;
 import model.Inventory.StorageDAO;
 import model.Inventory.SalesDAO;
@@ -24,12 +25,14 @@ public class Cashier {
     private CashRegister cashReg;
     private SalesDAO historicalSales;
     private StorageDAO inventory;
+    private BakeryMenuDAO dessertMenu; 
     private static final int PRODUCT_UNIT = 1;
 
     public Cashier(CashRegister cashReg) { // **** IMPLEMENTAR SINGLETON
         this.cashReg = cashReg;
         historicalSales = new SalesDAO();
         this.inventory = new StorageDAO();
+        this.dessertMenu = new BakeryMenuDAO();
     }
 
     public CashRegister getCashReg() {
@@ -47,7 +50,7 @@ public class Cashier {
             Sale sale = new Sale(dessertList, saleTotal, customerMoney, change);
 
             depositMoney(sale.getSaleTotal());
-            removeTheDessertsFromInventory(dessertList);
+            removeDessertsFromInventory(dessertList);
             
             addSaleToSaleHistory(sale);
         } catch (InsufficientAmountException ex) {
@@ -105,7 +108,8 @@ public class Cashier {
     }
 
     private void removeDessertFromInventory(Dessert dessert)  {
-        inventory.removeStockFromDessert(dessert, PRODUCT_UNIT);
+        int dessertKey = dessertMenu.getKeyFromDessert(dessert);
+        inventory.removeStockFromDessert(dessertKey, PRODUCT_UNIT);
     }
 
     public void addSaleToSaleHistory(Sale sale) {
@@ -121,7 +125,7 @@ public class Cashier {
         buyerList.add(newDessert);
     }
 
-    private void removeTheDessertsFromInventory(Dessert[] dessertList) {
+    private void removeDessertsFromInventory(Dessert[] dessertList) {
         for (int listIndex = 0; listIndex < dessertList.length; listIndex++) {
             removeDessertFromInventory(dessertList[ listIndex ]);
         }

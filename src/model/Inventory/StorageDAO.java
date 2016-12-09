@@ -49,13 +49,13 @@ public class StorageDAO extends DAOGeneralizer {
         }
     }
 
-    public void removeStockFromDessert(Dessert dessert, int amount) {
+    public void removeStockFromDessert(int dessertKey, int amount) {
         try {
             openConnection();
             commandStatement = prepareQuery(StorageCommands.REMOVE_AMOUNT.getCommand());
             commandStatement.setInt(1, amount);
-            commandStatement.setString(2, dessert.getName());
-            commandStatement.setString(3, dessert.getDescription());
+            commandStatement.setInt(2, dessertKey);
+            
             commandStatement.executeUpdate();
             closeConnection();
         } catch (SQLException ex) {

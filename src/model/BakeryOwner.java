@@ -11,6 +11,8 @@ import model.Inventory.StorageDAO;
  */
 
 public class BakeryOwner {
+    
+    private static final int INITIAL_STOCK_VALUE = 0;
 
     private BakeryMenuDAO productList = null;
     private StorageDAO stockList = null;
@@ -22,12 +24,13 @@ public class BakeryOwner {
 
     public void createNewDessert(String name, String description, double price, double cost) {
         Dessert newDessert = new Dessert(name, description, price, cost);
-        addNewDessertToMenu(newDessert);
+        addNewDessert(newDessert);
     }
 
-    public void addNewDessertToMenu(Dessert currentDessert) {
+    public void addNewDessert(Dessert currentDessert) {
         productList.addDessertToMenu(currentDessert);
-        
+        int dessertKey = productList.getKeyFromDessert(currentDessert);
+        stockList.addDessertToStorage(dessertKey, INITIAL_STOCK_VALUE);
         
     }
 
