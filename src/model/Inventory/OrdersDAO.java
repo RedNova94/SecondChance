@@ -15,6 +15,11 @@ import java.util.Calendar;
  */
 public class OrdersDAO extends DAOGeneralizer {
 
+    public static void main(String[] args) {
+        Order o= new Order("Señor capitan", "Galletas del mar", , "999999999");
+        OrdersDAO
+    }
+    
     public void addNewOrder(Order order) {
         try {
             openConnection();
