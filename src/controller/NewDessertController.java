@@ -66,6 +66,7 @@ public class NewDessertController implements Initializable {
         
         Bakery.getInstance().getBakeryOwner().createNewDessert(dessertName, 
                 dessertDesc, dessertPrice, dessertCost);
+        
         Stage nextStage = (Stage) btnAccept.getScene().getWindow();
         Alert confirmAlert = new Alert(AlertType.CONFIRMATION);
         confirmAlert.setTitle("Producto agregado.");

@@ -79,7 +79,7 @@ public class InventoryController implements Initializable {
         listMaker.setCell(priceColumn, "price");
         listMaker.setCell(costColumn, "cost");
         listMaker.setCell(stockColumn, "stock");
-         if(inventoryList == null) System.out.println("stupid idiot");
+        
         inventoryList.setItems(currentList);
     }
 
@@ -126,7 +126,7 @@ public class InventoryController implements Initializable {
     }
     
     private ArrayList getAllProductsList() {
-        ArrayList list = Bakery.getInstance().getCashier().retrieveMenuWithStock();
+        ArrayList list = Bakery.getInstance().getBakeryOwner().seeDessertFromMenu();
         if(list == null) System.out.println("stupid idiot");
         return Bakery.getInstance().getCashier().retrieveMenuWithStock(); //To change body of generated methods, choose Tools | Templates.
     }

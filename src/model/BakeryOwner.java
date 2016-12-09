@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import model.Inventory.Dessert;
 import model.Inventory.BakeryMenuDAO;
+import model.Inventory.StorageDAO;
 
 /**
  *
@@ -12,9 +13,11 @@ import model.Inventory.BakeryMenuDAO;
 public class BakeryOwner {
 
     private BakeryMenuDAO productList = null;
+    private StorageDAO stockList = null;
 
     public BakeryOwner() {
         productList = new BakeryMenuDAO();
+        stockList = new StorageDAO();
     }
 
     public void createNewDessert(String name, String description, double price, double cost) {
@@ -24,6 +27,8 @@ public class BakeryOwner {
 
     public void addNewDessertToMenu(Dessert currentDessert) {
         productList.addDessertToMenu(currentDessert);
+        
+        
     }
 
     public void removeDessertFromMenu(int productKey) {
