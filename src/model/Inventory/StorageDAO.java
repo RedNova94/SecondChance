@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class StorageDAO extends DAOGeneralizer {
 
+    //add joptionpane after create menu to add stock
     public void addDessertToStorage(int dessertKey, int amount) {
         try {
             openConnection();
