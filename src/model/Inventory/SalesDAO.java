@@ -15,6 +15,14 @@ import java.util.Calendar;
  * @author Mariana Rocha
  */
 public class SalesDAO extends DAOGeneralizer {
+    
+    public static void main(String args[]){
+        Dessert d1 = new Dessert("Pastel de Queso", "8-10", 50, 25);
+        Dessert[] list = {d1};
+        Sale sale = new Sale(list, Calendar.getInstance(), 600, 700, 100);
+        SalesDAO dao = new SalesDAO();
+        dao.addNewSale(sale);
+    }
 
     public void addNewSale(Sale sale) {
         try {

@@ -20,7 +20,7 @@ public class Bakery {
    
     
     
-    private Bakery(){
+    public Bakery(){
         this.cashier = new Cashier(new CashRegister());
         this.orderManager = new OrderManager();
         this.baker = new Baker();

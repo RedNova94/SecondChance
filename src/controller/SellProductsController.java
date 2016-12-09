@@ -42,7 +42,7 @@ public class SellProductsController implements Initializable {
     @FXML
     private Button btnCancelar;
     
-    private ArrayList<Dessert> list = new ArrayList<Dessert>();
+    private ArrayList<Dessert> dessertList = new ArrayList<Dessert>();
     
     private ObservableList<Dessert> currentList;
     @FXML
@@ -74,17 +74,21 @@ public class SellProductsController implements Initializable {
         this.nStage = stage;
     }
     
+    public void setBuyList(ArrayList list){
+        this.dessertList = list;
+    }
+    
     
     //Referir a la documentación para aclarar abstracción de este método
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        listMaker = new TableElementsMaker(list);
+        listMaker = new TableElementsMaker(dessertList);
         updateTable();
         
     }
     
     public void updateTable(){
-        listMaker.convertArrayToObservable(list);
+        listMaker.convertArrayToObservable(dessertList);
         currentList = listMaker.getCurrentList();
         listMaker.setCell(dessertName, "name");
         listMaker.setCell(dessertPrice, "price");
@@ -93,7 +97,7 @@ public class SellProductsController implements Initializable {
     
     public void returnFromListWindow(Dessert newDessert, int productQuantity){
         for (int productNum = 0; productNum < productQuantity; productNum++) {
-            Bakery.getInstance().getCashier().addDessertToBuyerList(list, newDessert);
+            Bakery.getInstance().getCashier().addDessertToBuyerList(dessertList, newDessert);
         }
         
         updateTable();
@@ -122,7 +126,7 @@ public class SellProductsController implements Initializable {
     
     @FXML
     private void btnFinishSalePress(ActionEvent event) {
-        Bakery.getInstance().getCashier().sellDesserts(list, Double.valueOf(customerMoney.getText()));
+        Bakery.getInstance().getCashier().sellDesserts(dessertList, Double.valueOf(customerMoney.getText()));
     }
 
     @FXML
@@ -144,6 +148,7 @@ public class SellProductsController implements Initializable {
         nStage.setScene(new Scene(root));
         nStage.show();
         controller.setCurrentCashier(currentCashier);
+        controller.setBuyList(this.dessertList);
     }
     
 }

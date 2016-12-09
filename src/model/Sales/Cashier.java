@@ -125,7 +125,6 @@ public class Cashier {
         for (int listIndex = 0; listIndex < dessertList.length; listIndex++) {
             removeDessertFromInventory(dessertList[ listIndex ]);
         }
- //To change body of generated methods, choose Tools | Templates.
     }
     
     
