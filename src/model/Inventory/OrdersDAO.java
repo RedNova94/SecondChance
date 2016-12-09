@@ -16,9 +16,10 @@ import java.util.Calendar;
 public class OrdersDAO extends DAOGeneralizer {
 
     public static void main(String[] args) {
-        Order o= new Order("Señor capitan", "Galletas del mar",Calendar.getInstance(), "999999999");
+        Order o= new Order("Mariana", "Pastel de Bodas $600",Calendar.getInstance(), "999999999");
         OrdersDAO dao = new OrdersDAO();
         dao.addNewOrder(o);
+        System.out.println("Orden añadida");
     }
     
     public void addNewOrder(Order order) {
