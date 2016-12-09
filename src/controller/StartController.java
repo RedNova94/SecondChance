@@ -79,6 +79,19 @@ public class StartController implements Initializable {
     }
     
     @FXML
+    private void btnInventoryPress(ActionEvent event) throws IOException {
+        nStage = (Stage) btnInventory.getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Inventory.fxml"));
+        Parent root = loader.load();
+ 
+        nStage.setTitle("Inventario");
+        nStage.setScene(new Scene(root));
+        
+        nStage.show();
+    }
+    
+    @FXML
     private void btnNewOrderPress(ActionEvent event) throws IOException{
         nStage = (Stage) btnTramsactopm.getScene().getWindow();
         //FXMLLoader loader = new FXMLLoader();

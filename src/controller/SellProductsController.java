@@ -24,6 +24,8 @@ import javafx.stage.Stage;
 import model.Inventory.Dessert;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TablePosition;
 import model.Bakery;
 import model.Sales.Cashier;
@@ -127,6 +129,12 @@ public class SellProductsController implements Initializable {
     @FXML
     private void btnFinishSalePress(ActionEvent event) {
         Bakery.getInstance().getCashier().sellDesserts(dessertList, Double.valueOf(customerMoney.getText()));
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Venta completada.");
+        alert.setContentText("La venta se ha completado.");
+        alert.showAndWait();
+        setBuyList(new ArrayList());
+        updateTable();
     }
 
     @FXML

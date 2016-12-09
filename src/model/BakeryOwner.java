@@ -17,8 +17,8 @@ public class BakeryOwner {
         productList = new BakeryMenuDAO();
     }
 
-    public void createNewDessert(String name, String description, double price, double cost, int stock) {
-        Dessert newDessert = new Dessert(name, description, price, cost, stock);
+    public void createNewDessert(String name, String description, double price, double cost) {
+        Dessert newDessert = new Dessert(name, description, price, cost);
         addNewDessertToMenu(newDessert);
     }
 

@@ -28,7 +28,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnInventory" mnemonicParsing="false" onAction="#goInventoryWindow" prefHeight="45.0" prefWidth="165.0" text="Inventario" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+            <Button fx:id="btnInventory" mnemonicParsing="false" onAction="#btnInventoryPress" prefHeight="45.0" prefWidth="165.0" text="Inventario" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
