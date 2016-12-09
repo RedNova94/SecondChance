@@ -16,7 +16,6 @@ import java.util.Calendar;
 public class OrdersDAO extends DAOGeneralizer {
 
     public static void main(String[] args) {
-        java.util.Date cal = Calendar.getInstance().getTime();
         Order o= new Order("Señor capitan", "Galletas del mar",Calendar.getInstance(), "999999999");
         OrdersDAO dao = new OrdersDAO();
         dao.addNewOrder(o);
@@ -26,8 +25,7 @@ public class OrdersDAO extends DAOGeneralizer {
         try {
             openConnection();
             commandStatement = prepareQuery(OrdersCommands.INSERT.getCommand());
-            Date dueDate = new Date(order.getDueDateAsCalendar().getTimeInMillis());
-            commandStatement.setDate(1, dueDate);
+            commandStatement.setString(1, order.getDueDate());
             commandStatement.setString(2, order.getDescription());
             commandStatement.setString(3, order.getCustomerName());
             commandStatement.setString(4, order.getTelephone());
